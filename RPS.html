@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissors Game</title>
+</head>
+<body>
+    <script type="text/javascript">
+alert("Let's play rock paper Scissors");
+alert("When you are asked please type in lowwer case");
+var ties = 0
+var wins = 0
+var losses = 0
+while(readyToPlay=true){
+var userChoice = prompt("Please Type your choice. r for Rock, p for paper, or s Scissors");
+userChoice.toLocaleLowerCase;
+const computerChoice = Math.floor(Math.random()*2);
+//0=rock, 1=paper, 2=Scissors
+if (userChoice==="r" && computerChoice===0){
+alert("The Cat Won, you-rock, computer-rock")
+let ties = ties+1;
+let readyToPlay = comfirm("If you would like to play again please type true. If you would like to stop, type false.(ps you have to do this at the ned of each game)")
+}
+else if(userChoice==="p" && computerChoice===1){
+alert("The Cat Won, you-paper, computer-paper")
+let ties = ties+1;
+let readyToPlay = comfirm("If you would like to play again please type true. If you would like to stop, type false.(ps you have to do this at the ned of each game)")
+}
+else if(userChoice==="s" && computerChoice===2){
+alert("The Cat Won, you-Scissors, computer-Scissors")
+let ties = ties+1;
+let readyToPlay = comfirm("If you would like to play again please type true. If you would like to stop, type false.(ps you have to do this at the ned of each game)")
+}
+else if(userChoice==="r" && computerChoice===2){
+alert("You Won! You-rock, Computer-Scissors")
+let wins = wins+1;
+let readyToPlay = comfirm("If you would like to play again please type true. If you would like to stop, type false.(ps you have to do this at the ned of each game)")
+}
+else if(userChoice==="p" && computerChoice===0){
+alert("You Won! You-paper, computer-rock")
+let wins = wins+1;
+let readyToPlay = comfirm("If you would like to play again please type true. If you would like to stop, type false.(ps you have to do this at the ned of each game)")
+}
+else if(userChoice==="s" && computerChoice===1){
+alert("You Won! You-Scissors, computer-paper")
+let wins = wins+1;
+let readyToPlay = comfirm("If you would like to play again please type true. If you would like to stop, type false.(ps you have to do this at the ned of each game)")
+}
+else if(userChoice==="r" && computerChoice===1){
+alert("The Computer Won, you-rock, computer-paper")
+let losses = losses+1;
+let readyToPlay = comfirm("If you would like to play again please type true. If you would like to stop, type false.(ps you have to do this at the ned of each game)")
+}
+else if(userChoice==="p" && computerChoice===2){
+alert("The Computer Won, you-paper, computer-Scissors")
+let losses = losses+1;
+let readyToPlay = comfirm("If you would like to play again please type true. If you would like to stop, type false.(ps you have to do this at the ned of each game)")
+}
+else if(userChoice==="s" && computerChoice===0){
+alert("The Computer Won, you-Scissors, computer-paper")
+let losses = losses+1;
+let readyToPlay = comfirm("If you would like to play again please type true. If you would like to stop, type false.(ps you have to do this at the ned of each game)")
+}
+else{
+    alert("You did not enter a correct letter")
+    let readyToPlay = comfirm("If you would like to play again please type true. If you would like to stop, type false.(ps you have to do this at the ned of each game)")
+}
+alert("Ties ",ties, " Wins " ,wins, " Losses " ,losses)
+let readyToPlay = comfirm("If you would like to play again please type true. If you would like to stop, type false.(ps you have to do this at the ned of each game)")
+}
+    </script>
+</body>
+</html>
