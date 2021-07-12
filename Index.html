@@ -1,74 +1,56 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-us">
+
 <head>
-//my rock paper scissors
-    <title>Rock Paper Scissors Game</title>
+  <meta charset="UTF-8">
+  <title>Rock Paper Scissors Part 7</title>
 </head>
+
 <body>
-    <h1>Let's Play Rock Paper Scissors!</h1>
-    <script type="text/javascript">
-alert("Let's play rock paper Scissors");
-alert("When you are asked please type in lowwer case");
-var ties = 0
-var wins = 0
-var losses = 0
-while(readyToPlay=true){
-var userChoice = prompt("Please Type your choice. r for Rock, p for paper, or s Scissors");
-userChoice.toLocaleLowerCase;
-const computerChoice = Math.floor(Math.random()*2);
-//0=rock, 1=paper, 2=Scissors
-if (userChoice==="r" && computerChoice===0){
-alert("The Cat Won, you-rock, computer-rock")
-let ties = ties+1;
-let readyToPlay = comfirm("If you would like to play again please type true. If you would like to stop, type false.(ps you have to do this at the ned of each game)")
-}
-else if(userChoice==="p" && computerChoice===1){
-alert("The Cat Won, you-paper, computer-paper")
-let ties = ties+1;
-let readyToPlay = comfirm("If you would like to play again please type true. If you would like to stop, type false.(ps you have to do this at the ned of each game)")
-}
-else if(userChoice==="s" && computerChoice===2){
-alert("The Cat Won, you-Scissors, computer-Scissors")
-let ties = ties+1;
-let readyToPlay = comfirm("If you would like to play again please type true. If you would like to stop, type false.(ps you have to do this at the ned of each game)")
-}
-else if(userChoice==="r" && computerChoice===2){
-alert("You Won! You-rock, Computer-Scissors")
-let wins = wins+1;
-let readyToPlay = comfirm("If you would like to play again please type true. If you would like to stop, type false.(ps you have to do this at the ned of each game)")
-}
-else if(userChoice==="p" && computerChoice===0){
-alert("You Won! You-paper, computer-rock")
-let wins = wins+1;
-let readyToPlay = comfirm("If you would like to play again please type true. If you would like to stop, type false.(ps you have to do this at the ned of each game)")
-}
-else if(userChoice==="s" && computerChoice===1){
-alert("You Won! You-Scissors, computer-paper")
-let wins = wins+1;
-let readyToPlay = comfirm("If you would like to play again please type true. If you would like to stop, type false.(ps you have to do this at the ned of each game)")
-}
-else if(userChoice==="r" && computerChoice===1){
-alert("The Computer Won, you-rock, computer-paper")
-let losses = losses+1;
-let readyToPlay = comfirm("If you would like to play again please type true. If you would like to stop, type false.(ps you have to do this at the ned of each game)")
-}
-else if(userChoice==="p" && computerChoice===2){
-alert("The Computer Won, you-paper, computer-Scissors")
-let losses = losses+1;
-let readyToPlay = comfirm("If you would like to play again please type true. If you would like to stop, type false.(ps you have to do this at the ned of each game)")
-}
-else if(userChoice==="s" && computerChoice===0){
-alert("The Computer Won, you-Scissors, computer-paper")
-let losses = losses+1;
-let readyToPlay = comfirm("If you would like to play again please type true. If you would like to stop, type false.(ps you have to do this at the ned of each game)")
-}
-else{
-    alert("You did not enter a correct letter")
-    let readyToPlay = comfirm("If you would like to play again please type true. If you would like to stop, type false.(ps you have to do this at the ned of each game)")
-}
-alert("Ties ",ties, " Wins " ,wins, " Losses " ,losses)
-let readyToPlay = comfirm("If you would like to play again please type true. If you would like to stop, type false.(ps you have to do this at the ned of each game)")
-}
-    </script>
+
+  <div>
+    <p id="directions-text">Press r, p or s to start playing!</p>
+  </div>
+
+  <script type="text/javascript">
+    // Creates an array that lists out all of the options (Rock, Paper, or Scissors).
+    var computerChoices = ["r", "p", "s"];
+
+    // Creating variables to hold the number of wins, losses, and ties. They start at 0.
+    var wins = 0;
+    var losses = 0;
+    var ties = 0;
+
+    // This function is run whenever the user presses a key.
+    document.onkeyup = function(event) {
+
+      // Determines which key was pressed.
+      var userGuess = event.key;
+
+      // Randomly chooses a choice from the options array. This is the Computer's guess.
+      var computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
+
+      // Reworked our code from last step to use "else if" instead of lots of if statements.
+      // This logic determines the outcome of the game (win/loss/tie), and increments the appropriate number
+      if ((userGuess === "r") || (userGuess === "p") || (userGuess === "s")) {
+
+        if ((userGuess === "r" && computerGuess === "s") ||
+          (userGuess === "s" && computerGuess === "p") || 
+          (userGuess === "p" && computerGuess === "r")) {
+          wins++;
+        } else if (userGuess === computerGuess) {
+          ties++;
+        } else {
+          losses++;
+        }
+
+        // Display the user and computer guesses, and wins/losses/ties.
+        alert("You chose: " + userGuess + "\nThe computer chose: " + computerGuess)
+        alert("wins: " + wins + "\nlosses: " + losses + "\nties: " + ties)
+      }
+    };
+  </script>
+
 </body>
+
 </html>
